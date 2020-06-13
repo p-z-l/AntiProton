@@ -92,7 +92,7 @@ class EditorViewController: NSViewController {
         let selections = contentTextView.selectedRanges
         let attributedString = currentBuffer.attributedText
         contentTextView.textStorage?.setAttributedString(attributedString)
-        contentTextView.font = .SFMono
+        contentTextView.font = .SFMono(ofSize: Preferences.fontSize)
         contentTextView.selectedRanges = selections
         contentTextView.backgroundColor = currentBuffer.backgroundColor
         bufferListStackView.layer?.backgroundColor = currentBuffer.backgroundColor.shadow(withLevel: 0.1)?.cgColor

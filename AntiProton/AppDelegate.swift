@@ -30,6 +30,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         currentEditorWindowController.openDocument(self)
     }
     
+    @IBAction func fontBigger(_ sender: NSMenuItem) {
+        changeFontSize(by: +1)
+    }
+    
+    @IBAction func fontSmaller(_ sender: NSMenuItem) {
+        changeFontSize(by: -1)
+    }
+    
     // open a new editor window
     private func newEditorWindow() -> EditorWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -37,5 +45,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         editorWindowController.window?.makeKeyAndOrderFront(self)
         editorWindowController.window?.makeMain()
         return editorWindowController
+    }
+    
+    private func changeFontSize(by dSize: CGFloat) {
+        if let editorWindowController = NSApplication.shared.mainWindow?.contentViewController as? EditorViewController {
+            let currentFont = editorWindowController.contentTextView.font!
+            Preferences.fontSize = currentFont.pointSize + dSize
+            let font = currentFont.changeSize(to: Preferences.fontSize)
+            editorWindowController.contentTextView.font = font
+        }
     }
 }
