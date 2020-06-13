@@ -9,28 +9,28 @@
 import Cocoa
 
 extension URL {
-	var isDirectory: Bool {
-		var result : ObjCBool = false
-		FileManager.default.fileExists(atPath: self.path, isDirectory: &result)
-		return result.boolValue
-	}
-	var isFile: Bool {
-		var result : ObjCBool = false
-		FileManager.default.fileExists(atPath: self.path, isDirectory: &result)
-		return !result.boolValue
-	}
-	var level: Int {
-		return self.pathComponents.count
-	}
-	var fileIcon: NSImage {
-		if self.isDirectory {
-			let name = NSImage.folderName
-			return NSImage(named: name)!
-		} else {
-			return NSWorkspace.shared.icon(forFileType: self.pathExtension)
-		}
-	}
-	func levelComparedWith(_ baseURL: URL) -> Int {
-		return self.level - baseURL.level - 1
-	}
+    var isDirectory: Bool {
+        var result : ObjCBool = false
+        FileManager.default.fileExists(atPath: self.path, isDirectory: &result)
+        return result.boolValue
+    }
+    var isFile: Bool {
+        var result : ObjCBool = false
+        FileManager.default.fileExists(atPath: self.path, isDirectory: &result)
+        return !result.boolValue
+    }
+    var level: Int {
+        return self.pathComponents.count
+    }
+    var fileIcon: NSImage {
+        if self.isDirectory {
+            let name = NSImage.folderName
+            return NSImage(named: name)!
+        } else {
+            return NSWorkspace.shared.icon(forFileType: self.pathExtension)
+        }
+    }
+    func levelComparedWith(_ baseURL: URL) -> Int { //
+        return self.level - baseURL.level - 1
+    }
 }
