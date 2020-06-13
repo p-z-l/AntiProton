@@ -20,7 +20,7 @@ class EditorViewController: NSViewController {
 	private(set) var openedBuffers = [EditorBuffer]()
 	private(set) var currentBufferIndex : Int? {
 		didSet {
-			contentTextView.string = currentBuffer.text
+			updateCodeHighlight()
 		}
 	}
 	private(set) var currentBuffer : EditorBuffer {
@@ -44,18 +44,6 @@ class EditorViewController: NSViewController {
 			currentBufferIndex = openedBuffers.count-1
 		}
 	}
-	private var editorEnabled = false {
-		didSet {
-			if editorEnabled {
-				contentTextView.font = NSFont.SFMono
-				contentTextView.alignment = .left
-				contentTextView.isEditable = true
-				contentTextView.textColor = .textColor
-			} else {
-				contentTextView.isEditable = false
-			}
-		}
-	}
 	override var representedObject: Any? {
 		didSet {
 			if let url = representedObject as? URL {
@@ -71,14 +59,12 @@ class EditorViewController: NSViewController {
 		documentManager.didUpdate {
 			self.sourceListTableView.reloadData()
 		}
-		editorEnabled = false
 	}
 	
 	// MARK: Private methods
 	// open a file
 	private func openURL(_ url: URL) {
 		currentBuffer = EditorBuffer(filePath: url)
-		editorEnabled = true
 	}
 	// returns an NSTableViewCell for sourceListTableView
 	private func getTableViewCell(forPath fileURL: URL) -> NSTableCellView? {
@@ -100,11 +86,18 @@ class EditorViewController: NSViewController {
 		indentCell(cell)
 		return cell
 	}
+	private func updateCodeHighlight() {
+		let selections = contentTextView.selectedRanges
+		let attributedString = currentBuffer.displayText
+		contentTextView.textStorage?.setAttributedString(attributedString)
+		contentTextView.selectedRanges = selections
+	}
 }
 
 extension EditorViewController: NSTextViewDelegate {
 	func textDidChange(_ notification: Notification) {
 		currentBuffer.text = contentTextView.string
+		updateCodeHighlight()
 	}
 }
 

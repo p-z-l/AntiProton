@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Highlightr
 
 class EditorBuffer: NSObject {
 	
@@ -40,6 +41,15 @@ class EditorBuffer: NSObject {
 			text = try String(contentsOf: representedURL!)
 		} catch {
 			print("failed to load file: \(representedURL!.path)")
+		}
+	}
+	
+	var displayText : NSAttributedString {
+		let highlighter = Highlightr()
+		if let result = highlighter?.highlight(text, as: representedURL?.pathExtension, fastRender: true) {
+			return result
+		} else {
+			return NSAttributedString(string: text)
 		}
 	}
 }

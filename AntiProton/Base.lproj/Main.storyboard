@@ -810,11 +810,11 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textView importsGraphics="NO" verticallyResizable="YES" findStyle="bar" smartInsertDelete="YES" id="mHe-hY-X9S">
-                                                            <rect key="frame" x="0.0" y="0.0" width="469" height="437"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="437" height="437"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                            <size key="minSize" width="469" height="437"/>
+                                                            <size key="minSize" width="437" height="437"/>
                                                             <size key="maxSize" width="657" height="10000000"/>
                                                             <attributedString key="textStorage">
                                                                 <fragment>
@@ -1112,7 +1112,7 @@ Cgo
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </clipView>
                                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="lri-3P-8jQ">
-                                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                                    <rect key="frame" x="-100" y="-100" width="469" height="16"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </scroller>
                                                 <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="lRk-q4-5Rk">
