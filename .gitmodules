@@ -1,0 +1,3 @@
+[submodule "Submodules/Highlightr"]
+	path = Submodules/Highlightr
+	url = https://github.com/raspu/Highlightr
