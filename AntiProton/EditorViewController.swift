@@ -103,6 +103,14 @@ extension EditorViewController: NSTextViewDelegate {
 		currentBuffer.text = contentTextView.string
 		updateCodeHighlight()
 	}
+    func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        if commandSelector == #selector(insertTab(_:)) {
+            textView.insertText("    ", replacementRange: textView.selectedRange())
+            return true
+        } else {
+            return false
+        }
+	}
 }
 
 extension EditorViewController: NSTableViewDelegate, NSTableViewDataSource {
