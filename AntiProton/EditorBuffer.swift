@@ -47,9 +47,6 @@ class EditorBuffer: NSObject {
 	}
 	
 	var displayText : NSAttributedString {
-		for theme in highlighter.availableThemes() {
-			print(theme)
-		}
 		highlighter.setTheme(to: "atom-one-dark")
 		if let result = highlighter.highlight(text, as: representedURL?.pathExtension, fastRender: true) {
 			return result

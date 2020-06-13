@@ -59,6 +59,7 @@ class EditorViewController: NSViewController {
 		documentManager.didUpdate {
 			self.sourceListTableView.reloadData()
 		}
+		contentTextView.isAutomaticQuoteSubstitutionEnabled = false
 	}
 	
 	// MARK: Private methods
@@ -90,6 +91,7 @@ class EditorViewController: NSViewController {
 		let selections = contentTextView.selectedRanges
 		let attributedString = currentBuffer.displayText
 		contentTextView.textStorage?.setAttributedString(attributedString)
+		contentTextView.font = .SFMono
 		contentTextView.selectedRanges = selections
 		contentTextView.backgroundColor = currentBuffer.backgroundColor
 		bufferListStackView.layer?.backgroundColor = currentBuffer.backgroundColor.shadow(withLevel: 0.1)?.cgColor
