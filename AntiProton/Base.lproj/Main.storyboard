@@ -1126,13 +1126,19 @@ Cgo
                                                     <constraint firstAttribute="height" constant="32" id="ftQ-tR-VpC"/>
                                                 </constraints>
                                             </stackView>
+                                            <box verticalHuggingPriority="750" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="htX-Er-7DQ">
+                                                <rect key="frame" x="0.0" y="434" width="469" height="5"/>
+                                            </box>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="8J9-dB-wzm" secondAttribute="trailing" id="0Gb-8C-0co"/>
+                                            <constraint firstAttribute="trailing" secondItem="htX-Er-7DQ" secondAttribute="trailing" id="0MS-a9-bju"/>
                                             <constraint firstAttribute="trailing" secondItem="k5d-8Q-Aiy" secondAttribute="trailing" id="4Xv-el-WjP"/>
                                             <constraint firstAttribute="bottom" secondItem="k5d-8Q-Aiy" secondAttribute="bottom" id="5Lq-J9-GYo"/>
                                             <constraint firstItem="k5d-8Q-Aiy" firstAttribute="leading" secondItem="m8k-no-zYf" secondAttribute="leading" id="Fyt-Ng-9jg"/>
+                                            <constraint firstItem="htX-Er-7DQ" firstAttribute="leading" secondItem="m8k-no-zYf" secondAttribute="leading" id="JMI-QZ-G84"/>
                                             <constraint firstItem="8J9-dB-wzm" firstAttribute="top" secondItem="m8k-no-zYf" secondAttribute="top" id="Qbm-le-1h4"/>
+                                            <constraint firstItem="htX-Er-7DQ" firstAttribute="top" secondItem="8J9-dB-wzm" secondAttribute="bottom" id="bNS-s1-PGv"/>
                                             <constraint firstItem="k5d-8Q-Aiy" firstAttribute="top" secondItem="8J9-dB-wzm" secondAttribute="bottom" id="nsg-FA-gdZ"/>
                                             <constraint firstItem="8J9-dB-wzm" firstAttribute="leading" secondItem="m8k-no-zYf" secondAttribute="leading" id="y8g-Ud-rgz"/>
                                         </constraints>

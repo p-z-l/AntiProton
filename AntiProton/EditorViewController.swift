@@ -91,6 +91,8 @@ class EditorViewController: NSViewController {
 		let attributedString = currentBuffer.displayText
 		contentTextView.textStorage?.setAttributedString(attributedString)
 		contentTextView.selectedRanges = selections
+		contentTextView.backgroundColor = currentBuffer.backgroundColor
+		bufferListStackView.layer?.backgroundColor = currentBuffer.backgroundColor.shadow(withLevel: 0.1)?.cgColor
 	}
 }
 

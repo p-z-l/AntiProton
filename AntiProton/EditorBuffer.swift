@@ -13,6 +13,8 @@ class EditorBuffer: NSObject {
 	
 	static let empty = EditorBuffer(filePath: nil)
 	
+	let highlighter = Highlightr()!
+	
 	var representedURL : URL?
 	var text = String()
 	
@@ -45,11 +47,18 @@ class EditorBuffer: NSObject {
 	}
 	
 	var displayText : NSAttributedString {
-		let highlighter = Highlightr()
-		if let result = highlighter?.highlight(text, as: representedURL?.pathExtension, fastRender: true) {
+		for theme in highlighter.availableThemes() {
+			print(theme)
+		}
+		highlighter.setTheme(to: "atom-one-dark")
+		if let result = highlighter.highlight(text, as: representedURL?.pathExtension, fastRender: true) {
 			return result
 		} else {
 			return NSAttributedString(string: text)
 		}
+	}
+	
+	var backgroundColor: NSColor {
+		return highlighter.theme.themeBackgroundColor
 	}
 }
