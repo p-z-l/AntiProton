@@ -80,7 +80,9 @@ class EditorViewController: NSViewController {
     // MARK: Private methods
     // open a file
     private func openURL(_ url: URL) {
-        currentBuffer = EditorBuffer(filePath: url)
+        if url.isPlainTextFile {
+            currentBuffer = EditorBuffer(filePath: url)
+        }
     }
     private func updateCodeHighlight() {
         let selections = contentTextView.selectedRanges

@@ -37,4 +37,13 @@ extension URL {
         guard self.isDirectory else { return nil}
         return DocumentManager.urlsInDirectory(self)
     }
+    var isPlainTextFile: Bool {
+        var result = false
+        do {
+            let _ = try String(contentsOf: self)
+            result = true
+        } catch {
+        }
+        return result
+    }
 }
