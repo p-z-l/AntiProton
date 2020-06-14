@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func application(_ sender: NSApplication, openFile filename: String) -> Bool {
         let url = URL(fileURLWithPath: filename)
         let editorWC = newEditorWindow()
-        editorWC.openURL(url    )
+        editorWC.openURL(url)
         return true
     }
     
