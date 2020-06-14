@@ -10,6 +10,11 @@ import Cocoa
 
 class EditorWindowController: NSWindowController {
     
+    private var editorVC : EditorViewController {
+        guard let editorViewController = self.contentViewController as? EditorViewController else { fatalError() }
+        return editorViewController
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
@@ -17,7 +22,7 @@ class EditorWindowController: NSWindowController {
         self.shouldCascadeWindows = true
     }
     // show open document panel
-    func openDocument(_ sender: AnyObject?) {
+    func openDocument(_ handler: @escaping (URL?)->Void) {
         let openPanel = NSOpenPanel()
         openPanel.showsHiddenFiles = false
         openPanel.canChooseFiles = false
@@ -29,10 +34,15 @@ class EditorWindowController: NSWindowController {
             }
             self.contentViewController?.representedObject = openPanel.url
             self.window?.title = openPanel.url!.lastPathComponent
+            handler(openPanel.url)
         }
     }
     @IBAction func saveDocument(_ sender: AnyObject?) {
-        guard let editorViewController = self.contentViewController as? EditorViewController else { return }
-        editorViewController.currentBuffer.saveFile()
+        editorVC.currentBuffer.saveFile()
+    }
+    func openURL(_ url: URL) {
+        if url.isDirectory {
+            self.contentViewController?.representedObject = url
+        }
     }
 }

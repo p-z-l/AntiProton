@@ -23,7 +23,7 @@ class EditorBuffer: NSObject {
         do {
             text = try String(contentsOf: representedURL!)
         } catch {
-            print("failed to load file: \(representedURL!.path)")
+            print("failed to load file: \(representedURL!.path) while initializing EditorBuffer")
         }
     }
     
@@ -41,7 +41,7 @@ class EditorBuffer: NSObject {
         do {
             text = try String(contentsOf: representedURL!)
         } catch {
-            print("failed to load file: \(representedURL!.path)")
+            print("failed to load file: \(representedURL!.path) while reverting to save")
         }
     }
 }

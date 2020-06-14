@@ -76,26 +76,6 @@ class EditorViewController: NSViewController {
     private func openURL(_ url: URL) {
         currentBuffer = EditorBuffer(filePath: url)
     }
-    // returns an NSTableViewCell for sourceListTableView
-    private func getTableViewCell(forPath fileURL: URL) -> NSTableCellView? {
-        func indentCell(_ cell: NSTableCellView) {
-            let dx = CGFloat(fileURL.levelComparedWith(documentManager.baseURL!))*16
-            for subView in cell.subviews {
-                subView.frame = CGRect(x: subView.frame.minX + dx,
-                                       y: subView.frame.minY,
-                                       width: subView.frame.width,
-                                       height: subView.frame.height)
-            }
-        }
-        let fileName = fileURL.lastPathComponent
-        let fileTypeIcon = fileURL.fileIcon
-        let identifier = NSUserInterfaceItemIdentifier("FileCell")
-        guard let cell = sourceListOutlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView else { return nil }
-        cell.textField?.stringValue = fileName
-        cell.imageView?.image = fileTypeIcon
-        indentCell(cell)
-        return cell
-    }
     private func updateCodeHighlight() {
         let selections = contentTextView.selectedRanges
         let attributedString = highlightedText
@@ -126,7 +106,6 @@ extension EditorViewController: NSTextViewDelegate {
 
 extension EditorViewController: NSOutlineViewDelegate, NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-//        return documentManager.files[index]
         return (item as? File)?.subDirectoryFiles?[index] ?? documentManager.files[index]
     }
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {

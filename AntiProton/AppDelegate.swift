@@ -19,6 +19,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    func application(_ sender: NSApplication, openFiles filenames: [String]) {
+        for filename in filenames {
+            let url = URL(fileURLWithPath: filename)
+            let editorWC = newEditorWindow()
+            editorWC.openURL(url)
+        }
+    }
+    
     @IBAction func openDocument(_ sender: AnyObject?) {
         var currentEditorWindowController: EditorWindowController
         if NSApplication.shared.mainWindow == nil {
@@ -27,7 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             guard let windowController = NSApplication.shared.mainWindow!.windowController as? EditorWindowController else { return }
             currentEditorWindowController = windowController
         }
-        currentEditorWindowController.openDocument(self)
+        currentEditorWindowController.openDocument { url in
+            if url != nil {
+                NSDocumentController.shared.noteNewRecentDocumentURL(url!)
+            }
+        }
     }
     
     @IBAction func fontBigger(_ sender: NSMenuItem) {
