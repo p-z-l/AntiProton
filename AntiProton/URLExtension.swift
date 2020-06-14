@@ -33,4 +33,8 @@ extension URL {
     func levelComparedWith(_ baseURL: URL) -> Int { //
         return self.level - baseURL.level - 1
     }
+    var subdirectoryURLs: [URL]? {
+        guard self.isDirectory else { return nil}
+        return DocumentManager.urlsInDirectory(self)
+    }
 }

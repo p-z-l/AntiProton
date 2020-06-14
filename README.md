@@ -25,3 +25,4 @@ A high performance code editor for Mac.
 - Preferences & Customizations
 - RTF/RTFD support
 - Customized syntax theme
+

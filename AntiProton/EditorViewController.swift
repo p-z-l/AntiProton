@@ -127,23 +127,23 @@ extension EditorViewController: NSTextViewDelegate {
 
 extension EditorViewController: NSOutlineViewDelegate, NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return (item as? File)?.subDirectoryFiles?[index] ?? documentManager.files[index]
+        return (item as? URL)?.subdirectoryURLs?[index] ?? documentManager.urls[index]
     }
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
-        if let dir = item as? File {
-            return dir.subDirectoryFiles?.count ?? 0
+        if let directoryURL = item as? URL {
+            return directoryURL.subdirectoryURLs?.count ?? 0
         } else {
-            return documentManager.files.count
+            return documentManager.urls.count
         }
     }
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return (item as! File).url.isDirectory
+        return (item as! URL).isDirectory
     }
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        let url = (item as! File).url
+        let url = item as! URL
         let identifier = NSUserInterfaceItemIdentifier("FileNameCell")
         let cell = outlineView.makeView(withIdentifier: identifier, owner: self) as! FileNameTableCellView
-        cell.representedURL = (item as! File).url
+        cell.representedURL = item as? URL
         cell.textField?.stringValue = url.lastPathComponent
         cell.imageView?.image = url.fileIcon
         return cell
