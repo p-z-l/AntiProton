@@ -53,10 +53,16 @@ class EditorViewController: NSViewController {
             }
         }
     }
-    
+    // syntax highlight
     let highlightr = Highlightr()!
     var highlightedText: NSAttributedString {
-        return highlightr.highlight(currentBuffer.text, as: currentBuffer.representedURL?.pathExtension, fastRender: false)!
+        if currentBuffer.representedURL?.pathExtension != "txt" {
+            return highlightr.highlight(currentBuffer.text, as: currentBuffer.representedURL?.pathExtension, fastRender: false)!
+        } else {
+            return NSAttributedString(string: currentBuffer.text, attributes: [
+                .foregroundColor : NSColor.textColor
+            ])
+        }
     }
     
     // MARK: ViewController Life Cycle
@@ -82,7 +88,11 @@ class EditorViewController: NSViewController {
         contentTextView.textStorage?.setAttributedString(attributedString)
         contentTextView.font = .SFMono(ofSize: Preferences.fontSize)
         contentTextView.selectedRanges = selections
-        contentTextView.backgroundColor = highlightr.theme.themeBackgroundColor
+        if currentBuffer.representedURL?.pathExtension != "txt" {
+            contentTextView.backgroundColor = highlightr.theme.themeBackgroundColor
+        } else {
+            contentTextView.backgroundColor = .textBackgroundColor
+        }
         bufferListStackView.layer?.backgroundColor = contentTextView.backgroundColor.shadow(withLevel: 0.2)?.cgColor
     }
     
