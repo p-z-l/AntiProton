@@ -12,12 +12,12 @@ class DocumentManager: NSObject {
     
     var baseURL : URL? {
         didSet {
-            guard baseURL != nil else { return }
+            guard self.baseURL != nil else { return }
             openURL(baseURL!)
         }
     }
     
-    private(set) var fileURLs = [URL]() {
+    private(set) var files = [File]() {
         didSet {
             dataChangeHandler()
         }
@@ -29,19 +29,42 @@ class DocumentManager: NSObject {
         dataChangeHandler = handler
     }
     
-    private func openURL(_ url: URL) {
-        fileURLs.removeAll()
-        var urls = [URL]()
+    static func filesInDirectory(_ url: URL) -> [File] {
+        var files = [File]()
         let options: FileManager.DirectoryEnumerationOptions = [
             .skipsHiddenFiles,
             .skipsPackageDescendants,
+            .skipsSubdirectoryDescendants,
         ]
-        guard let enumerator = FileManager.default.enumerator(at: url,includingPropertiesForKeys: nil, options: options) else { return }
+        guard let enumerator = FileManager.default.enumerator(at: url,includingPropertiesForKeys: nil, options: options) else { return [File]() }
         while let fileURL = enumerator.nextObject() as? URL {
-            urls.append(fileURL)
+            files.append(File(url: fileURL))
         }
-        // sort files A-z
-        urls.sort { $0.path < $1.path }
-        fileURLs = urls
+        files.sort { $0.url.lastPathComponent < $1.url.lastPathComponent } // sort files A-z
+        return files
+    }
+    
+    private func openURL(_ url: URL) {
+        files.removeAll()
+        
+        for file in DocumentManager.filesInDirectory(url) {
+            files.append(file)
+        }
+    }
+    
+}
+
+class File: NSObject {
+    
+    let url : URL
+    
+    init(url: URL) {
+        self.url = url
+    }
+    
+    var subDirectoryFiles : [File]? {
+        guard url.isDirectory else { return nil }
+        return DocumentManager.filesInDirectory(url)
     }
 }
+

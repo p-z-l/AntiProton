@@ -12,6 +12,7 @@
 		B31ED5DC249374EF0075BEC3 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED5DB249374EF0075BEC3 /* URLExtension.swift */; };
 		B36046472494BAD60088498D /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36046462494BAD60088498D /* Highlightr.framework */; };
 		B36046482494BAD60088498D /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B36046462494BAD60088498D /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B36D458324960B6F00DB683E /* FileNameTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36D458224960B6F00DB683E /* FileNameTableCellView.swift */; };
 		B39BBE36248FC22E00855E32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE35248FC22E00855E32 /* AppDelegate.swift */; };
 		B39BBE38248FC22E00855E32 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE37248FC22E00855E32 /* EditorViewController.swift */; };
 		B39BBE3A248FC23500855E32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39BBE39248FC23500855E32 /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		B31BCED02494F4DC00B8F897 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		B31ED5DB249374EF0075BEC3 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
 		B36046462494BAD60088498D /* Highlightr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Highlightr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B36D458224960B6F00DB683E /* FileNameTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNameTableCellView.swift; sourceTree = "<group>"; };
 		B39BBE32248FC22E00855E32 /* AntiProton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntiProton.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B39BBE35248FC22E00855E32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B39BBE37248FC22E00855E32 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			children = (
 				B39BBE37248FC22E00855E32 /* EditorViewController.swift */,
 				B39BBE45248FC5D400855E32 /* EditorWindowController.swift */,
+				B36D458224960B6F00DB683E /* FileNameTableCellView.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				B31ED5DC249374EF0075BEC3 /* URLExtension.swift in Sources */,
 				B3B7D8692493B9B2008BBB48 /* NSFontExtension.swift in Sources */,
+				B36D458324960B6F00DB683E /* FileNameTableCellView.swift in Sources */,
 				B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */,
 				B39BBE38248FC22E00855E32 /* EditorViewController.swift in Sources */,
 				B39BBE36248FC22E00855E32 /* AppDelegate.swift in Sources */,

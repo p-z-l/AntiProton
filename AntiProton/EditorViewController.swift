@@ -14,7 +14,7 @@ class EditorViewController: NSViewController {
     // MARK: Properties
     // UI elements
     @IBOutlet weak var bufferListStackView: NSStackView!
-    @IBOutlet weak var sourceListTableView: NSTableView!
+    @IBOutlet weak var sourceListOutlineView: NSOutlineView!
     @IBOutlet var contentTextView: NSTextView!
     
     // buffer & editor
@@ -64,7 +64,7 @@ class EditorViewController: NSViewController {
         super.viewDidLoad()
         
         documentManager.didChangeData {
-            self.sourceListTableView.reloadData()
+            self.sourceListOutlineView.reloadData()
         }
         contentTextView.isAutomaticQuoteSubstitutionEnabled = false
         
@@ -90,7 +90,7 @@ class EditorViewController: NSViewController {
         let fileName = fileURL.lastPathComponent
         let fileTypeIcon = fileURL.fileIcon
         let identifier = NSUserInterfaceItemIdentifier("FileCell")
-        guard let cell = sourceListTableView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView else { return nil }
+        guard let cell = sourceListOutlineView.makeView(withIdentifier: identifier, owner: self) as? NSTableCellView else { return nil }
         cell.textField?.stringValue = fileName
         cell.imageView?.image = fileTypeIcon
         indentCell(cell)
@@ -124,19 +124,35 @@ extension EditorViewController: NSTextViewDelegate {
     }
 }
 
-extension EditorViewController: NSTableViewDelegate, NSTableViewDataSource {
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let fileURL = documentManager.fileURLs[row]
-        return getTableViewCell(forPath: fileURL)
+extension EditorViewController: NSOutlineViewDelegate, NSOutlineViewDataSource {
+    func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
+//        return documentManager.files[index]
+        return (item as? File)?.subDirectoryFiles?[index] ?? documentManager.files[index]
     }
-    func numberOfRows(in tableView: NSTableView) -> Int {
-        return documentManager.fileURLs.count
+    func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
+        if let dir = item as? File {
+            return dir.subDirectoryFiles?.count ?? 0
+        } else {
+            return documentManager.files.count
+        }
     }
-    func tableViewSelectionDidChange(_ notification: Notification) {
-        let selectedRow = sourceListTableView.selectedRow
-        guard selectedRow >= 0 && selectedRow < documentManager.fileURLs.count else { return }
-        let fileURL = documentManager.fileURLs[selectedRow]
-        openURL(fileURL)
+    func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
+        return (item as! File).url.isDirectory
     }
-    
+    func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
+        let url = (item as! File).url
+        let identifier = NSUserInterfaceItemIdentifier("FileNameCell")
+        let cell = outlineView.makeView(withIdentifier: identifier, owner: self) as! FileNameTableCellView
+        cell.representedURL = (item as! File).url
+        cell.textField?.stringValue = url.lastPathComponent
+        cell.imageView?.image = url.fileIcon
+        return cell
+    }
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        let row = sourceListOutlineView.selectedRow
+        let column = sourceListOutlineView.selectedColumn
+        let selectedCell = sourceListOutlineView.view(atColumn: column, row: row, makeIfNecessary: false) as! FileNameTableCellView
+        let url = selectedCell.representedURL!
+        openURL(url)
+    }
 }
