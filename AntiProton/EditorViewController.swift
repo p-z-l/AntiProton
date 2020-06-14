@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Highlightr
 
 class EditorViewController: NSViewController {
     
@@ -53,6 +54,11 @@ class EditorViewController: NSViewController {
         }
     }
     
+    let highlightr = Highlightr()!
+    var highlightedText: NSAttributedString {
+        return highlightr.highlight(currentBuffer.text, as: currentBuffer.representedURL?.pathExtension, fastRender: false)!
+    }
+    
     // MARK: ViewController Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,6 +67,8 @@ class EditorViewController: NSViewController {
             self.sourceListTableView.reloadData()
         }
         contentTextView.isAutomaticQuoteSubstitutionEnabled = false
+        
+        highlightr.setTheme(to: "atom-one-dark")
     }
     
     // MARK: Private methods
@@ -90,12 +98,12 @@ class EditorViewController: NSViewController {
     }
     private func updateCodeHighlight() {
         let selections = contentTextView.selectedRanges
-        let attributedString = currentBuffer.attributedText
+        let attributedString = highlightedText
         contentTextView.textStorage?.setAttributedString(attributedString)
         contentTextView.font = .SFMono(ofSize: Preferences.fontSize)
         contentTextView.selectedRanges = selections
-        contentTextView.backgroundColor = currentBuffer.backgroundColor
-        bufferListStackView.layer?.backgroundColor = currentBuffer.backgroundColor.shadow(withLevel: 0.1)?.cgColor
+        contentTextView.backgroundColor = highlightr.theme.themeBackgroundColor
+        bufferListStackView.layer?.backgroundColor = contentTextView.backgroundColor.shadow(withLevel: 0.2)?.cgColor
     }
 }
 
