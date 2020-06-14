@@ -18,3 +18,4 @@ extension NSFont {
         return NSFont(descriptor: self.fontDescriptor, size: size)!
     }
 }
+

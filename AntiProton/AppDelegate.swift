@@ -57,6 +57,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         changeFontSize(by: -1)
     }
     
+    @IBAction func undo(_ sender: NSMenuItem) {
+        if let editorVC = NSApplication.shared.mainWindow?.contentViewController as? EditorViewController {
+            editorVC.undo()
+        }
+    }
+    
+    @IBAction func redo(_ sender: NSMenuItem) {
+        if let editorVC = NSApplication.shared.mainWindow?.contentViewController as? EditorViewController {
+            editorVC.redo()
+        }
+    }
+    
     // open a new editor window
     private func newEditorWindow() -> EditorWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -67,11 +79,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func changeFontSize(by dSize: CGFloat) {
-        if let editorWindowController = NSApplication.shared.mainWindow?.contentViewController as? EditorViewController {
-            let currentFont = editorWindowController.contentTextView.font!
+        if let editorVC = NSApplication.shared.mainWindow?.contentViewController as? EditorViewController {
+            let currentFont = editorVC .contentTextView.font!
             Preferences.fontSize = currentFont.pointSize + dSize
             let font = currentFont.changeSize(to: Preferences.fontSize)
-            editorWindowController.contentTextView.font = font
+            editorVC .contentTextView.font = font
         }
     }
 }

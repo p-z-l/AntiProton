@@ -17,6 +17,7 @@ A high performance code editor for Mac.
 `git clone https://github.com/p-z-l/AntiProton.git`\
 2. Update  submodules:\
 `git submodule update --init`
+3. Open Xcode, HAPPY CODING!
 
 ## TODO
 - Bugfixes
@@ -24,4 +25,3 @@ A high performance code editor for Mac.
 - Preferences & Customizations
 - RTF/RTFD support
 - Customized syntax theme
-- Support opening recent files

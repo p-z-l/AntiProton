@@ -45,4 +45,8 @@ class EditorWindowController: NSWindowController {
             self.contentViewController?.representedObject = url
         }
     }
+    
+    public func haha() {
+        print("haha")
+    }
 }

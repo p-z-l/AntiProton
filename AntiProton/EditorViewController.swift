@@ -85,6 +85,13 @@ class EditorViewController: NSViewController {
         contentTextView.backgroundColor = highlightr.theme.themeBackgroundColor
         bufferListStackView.layer?.backgroundColor = contentTextView.backgroundColor.shadow(withLevel: 0.2)?.cgColor
     }
+    
+    func undo() {
+        currentBuffer.undoManager.undo()
+    }
+    func redo() {
+        currentBuffer.undoManager.redo()
+    }
 }
 
 extension EditorViewController: NSTextViewDelegate {
@@ -94,6 +101,7 @@ extension EditorViewController: NSTextViewDelegate {
         updateCodeHighlight()
     }
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        // register in undo manager
         // insert spaces when tab key is pressed
         if commandSelector == #selector(insertTab(_:)) {
             textView.insertText("    ", replacementRange: textView.selectedRange())
@@ -101,6 +109,9 @@ extension EditorViewController: NSTextViewDelegate {
         } else {
             return false
         }
+    }
+    func textView(_ textView: NSTextView, shouldChangeTextIn affectedCharRange: NSRange, replacementString: String?) -> Bool {
+        return true
     }
 }
 

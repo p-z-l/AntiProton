@@ -14,6 +14,8 @@ class EditorBuffer: NSObject {
     // returns an empty buffer
     static let empty = EditorBuffer(filePath: nil)
     
+    let undoManager = UndoManager()
+    
     var representedURL : URL?
     var text = String()
     
