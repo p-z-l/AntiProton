@@ -6,19 +6,22 @@
 # AntiProton
 
 A high performance code editor for Mac.
-<br>
 
-**Features:**
+## Features
 
 - Code highlight for multiple programming languages
 - Light & Dark interface appearance
 
-<br>
+## Build
+1. Clone the repo:\
+`git clone https://github.com/p-z-l/AntiProton.git`\
+2. Update  submodules:\
+`git submodule update --init`
 
-**TODOs:**
-
+## TODO
 - Bugfixes
 - Touchbar support
-- Edit Markdown & RTF/RTFD documents
 - Preferences & Customizations
+- RTF/RTFD support
 - Customized syntax theme
+- Support opening recent files
