@@ -27,6 +27,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    func application(_ sender: NSApplication, openFile filename: String) -> Bool {
+        let url = URL(fileURLWithPath: filename)
+        let editorWC = newEditorWindow()
+        editorWC.openURL(url    )
+        return true
+    }
+    
     @IBAction func openDocument(_ sender: AnyObject?) {
         var currentEditorWindowController: EditorWindowController
         if NSApplication.shared.mainWindow == nil {
