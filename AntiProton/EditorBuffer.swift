@@ -17,7 +17,13 @@ class EditorBuffer: NSObject {
     let undoManager = UndoManager()
     
     var representedURL : URL?
-    var text = String()
+    var text = String() {
+        didSet {
+            isDirty = true
+        }
+    }
+    
+    var isDirty = false
     
     init(filePath: URL?) {
         representedURL = filePath
@@ -36,6 +42,7 @@ class EditorBuffer: NSObject {
         } catch {
             print("failed to save file: \(representedURL!.path)")
         }
+        isDirty = false
     }
     
     func revertToSave() {

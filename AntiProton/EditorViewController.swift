@@ -18,7 +18,7 @@ class EditorViewController: NSViewController {
     @IBOutlet var contentTextView: NSTextView!
     
     // buffer & editor
-    private var documentManager = DocumentManager()
+    private let documentManager = DocumentManager()
     private(set) var openedBuffers = [EditorBuffer]()
     private(set) var currentBufferIndex : Int? {
         didSet {
@@ -104,6 +104,12 @@ class EditorViewController: NSViewController {
     func redo() {
         currentBuffer.undoManager.redo()
     }
+    
+    private var dataChangeHandler: ()->Void = {}
+    
+    func didEdit(_ handler: @escaping ()->Void) {
+        self.dataChangeHandler = handler
+    }
 }
 
 extension EditorViewController: NSTextViewDelegate {
@@ -111,6 +117,8 @@ extension EditorViewController: NSTextViewDelegate {
         // sync with the current buffer
         currentBuffer.text = contentTextView.string
         updateCodeHighlight()
+        
+        dataChangeHandler()
     }
     func textView(_ textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         // register in undo manager

@@ -21,6 +21,13 @@ class EditorWindowController: NSWindowController {
         // avoid windows overlapping with each other
         self.shouldCascadeWindows = true
     }
+    
+    override func windowDidLoad() {
+        editorVC.didEdit {
+            self.window?.isDocumentEdited = true
+        }
+    }
+    
     // show open document panel
     func openDocument(_ handler: @escaping (URL?)->Void) {
         let openPanel = NSOpenPanel()
@@ -39,6 +46,12 @@ class EditorWindowController: NSWindowController {
     }
     @IBAction func saveDocument(_ sender: AnyObject?) {
         editorVC.currentBuffer.saveFile()
+        for buffer in editorVC.openedBuffers {
+            if buffer.isDirty {
+                return
+            }
+        }
+        self.window?.isDocumentEdited = false
     }
     func openURL(_ url: URL) {
         if url.isDirectory {
