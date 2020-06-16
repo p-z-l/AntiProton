@@ -49,6 +49,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @IBAction func saveAllDocuments(_ sender: AnyObject?) {
+        if let editorWC = NSApplication.shared.mainWindow?.windowController as? EditorWindowController {
+            editorWC.saveAllDocuments(self)
+        }
+    }
+    
     @IBAction func fontBigger(_ sender: NSMenuItem) {
         changeFontSize(by: +1)
     }

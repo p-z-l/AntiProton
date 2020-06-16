@@ -53,13 +53,17 @@ class EditorWindowController: NSWindowController {
         }
         self.window?.isDocumentEdited = false
     }
+    func saveAllDocuments(_ sender: AnyObject?) {
+        for buffer in editorVC.openedBuffers {
+            if buffer.isDirty {
+                buffer.saveFile()
+            }
+        }
+        self.window?.isDocumentEdited = false
+    }
     func openURL(_ url: URL) {
         if url.isDirectory {
             self.contentViewController?.representedObject = url
         }
-    }
-    
-    public func haha() {
-        print("haha")
     }
 }
