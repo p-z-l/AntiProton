@@ -34,6 +34,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        let _ = newEditorWindow()
+    }
+    
     @IBAction func openDocument(_ sender: AnyObject?) {
         var currentEditorWindowController: EditorWindowController
         if NSApplication.shared.mainWindow == nil {
@@ -75,13 +79,22 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    @IBAction func new(_ sender: NSMenuItem) {
+        let _ = newEditorWindow()
+    }
+    
+    @IBAction func showPrefs(_ sender: NSMenuItem) {
+        let storyboard = NSStoryboard(name: "Preferences", bundle: nil)
+        let storyboardWC = PreferencesWindowController.shared
+        storyboardWC.window?.makeKeyAndOrderFront(self)
+    }
+    
     // open a new editor window
     private func newEditorWindow() -> EditorWindowController {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let editorWindowController = storyboard.instantiateController(withIdentifier: "EditorWindowController") as! EditorWindowController
-        editorWindowController.window?.makeKeyAndOrderFront(self)
-        editorWindowController.window?.makeMain()
-        return editorWindowController
+        let storyboard = NSStoryboard(name: "Editor", bundle: nil)
+        let editorWC = storyboard.instantiateController(withIdentifier: "EditorWindowController") as! EditorWindowController
+        editorWC.window?.makeKeyAndOrderFront(self)
+        return editorWC
     }
     
     private func changeFontSize(by dSize: CGFloat) {

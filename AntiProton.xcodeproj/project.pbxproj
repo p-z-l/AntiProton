@@ -16,10 +16,14 @@
 		B39BBE36248FC22E00855E32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE35248FC22E00855E32 /* AppDelegate.swift */; };
 		B39BBE38248FC22E00855E32 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE37248FC22E00855E32 /* EditorViewController.swift */; };
 		B39BBE3A248FC23500855E32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39BBE39248FC23500855E32 /* Assets.xcassets */; };
-		B39BBE3D248FC23500855E32 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B39BBE3B248FC23500855E32 /* Main.storyboard */; };
 		B39BBE46248FC5D400855E32 /* EditorWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE45248FC5D400855E32 /* EditorWindowController.swift */; };
 		B39BBE4B248FCA9500855E32 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE4A248FCA9500855E32 /* DocumentManager.swift */; };
 		B3B7D8692493B9B2008BBB48 /* NSFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */; };
+		B3EE2A46249E3DC900FF8123 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */; };
+		B3EE2A48249E3EA000FF8123 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */; };
+		B3EE2A4A249E3EB300FF8123 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A49249E3EB300FF8123 /* PreferencesViewController.swift */; };
+		B3EE2A51249E3FED00FF8123 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A50249E3FED00FF8123 /* Editor.storyboard */; };
+		B3EE2A53249E3FFE00FF8123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A52249E3FFE00FF8123 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,12 +50,16 @@
 		B39BBE35248FC22E00855E32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B39BBE37248FC22E00855E32 /* EditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		B39BBE39248FC23500855E32 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B39BBE3C248FC23500855E32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B39BBE3E248FC23500855E32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B39BBE3F248FC23500855E32 /* AntiProton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AntiProton.entitlements; sourceTree = "<group>"; };
 		B39BBE45248FC5D400855E32 /* EditorWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorWindowController.swift; sourceTree = "<group>"; };
 		B39BBE4A248FCA9500855E32 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
 		B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFontExtension.swift; sourceTree = "<group>"; };
+		B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		B3EE2A49249E3EB300FF8123 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		B3EE2A50249E3FED00FF8123 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
+		B3EE2A52249E3FFE00FF8123 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,16 +74,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B31845032493D3F600FC22B8 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				B31845042493D40600FC22B8 /* EditorBuffer.swift */,
-				B39BBE4A248FCA9500855E32 /* DocumentManager.swift */,
-				B31BCED02494F4DC00B8F897 /* Preferences.swift */,
-			);
-			name = Models;
-			sourceTree = "<group>";
-		};
 		B36046452494BAD60088498D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -105,11 +103,11 @@
 			isa = PBXGroup;
 			children = (
 				B39BBE35248FC22E00855E32 /* AppDelegate.swift */,
-				B31845032493D3F600FC22B8 /* Models */,
+				B3EE2A52249E3FFE00FF8123 /* Main.storyboard */,
 				B39BBE47248FC63500855E32 /* Editor */,
+				B3EE2A44249E3D7200FF8123 /* Preferences */,
 				B39BBE49248FCA7900855E32 /* Utils */,
 				B39BBE39248FC23500855E32 /* Assets.xcassets */,
-				B39BBE3B248FC23500855E32 /* Main.storyboard */,
 				B39BBE3E248FC23500855E32 /* Info.plist */,
 				B39BBE3F248FC23500855E32 /* AntiProton.entitlements */,
 			);
@@ -119,8 +117,11 @@
 		B39BBE47248FC63500855E32 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				B3EE2A50249E3FED00FF8123 /* Editor.storyboard */,
+				B31845042493D40600FC22B8 /* EditorBuffer.swift */,
 				B39BBE37248FC22E00855E32 /* EditorViewController.swift */,
 				B39BBE45248FC5D400855E32 /* EditorWindowController.swift */,
+				B39BBE4A248FCA9500855E32 /* DocumentManager.swift */,
 				B36D458224960B6F00DB683E /* FileNameTableCellView.swift */,
 			);
 			name = Editor;
@@ -133,6 +134,17 @@
 				B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		B3EE2A44249E3D7200FF8123 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */,
+				B31BCED02494F4DC00B8F897 /* Preferences.swift */,
+				B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */,
+				B3EE2A49249E3EB300FF8123 /* PreferencesViewController.swift */,
+			);
+			name = Preferences;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,8 +206,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3EE2A46249E3DC900FF8123 /* Preferences.storyboard in Resources */,
+				B3EE2A51249E3FED00FF8123 /* Editor.storyboard in Resources */,
 				B39BBE3A248FC23500855E32 /* Assets.xcassets in Resources */,
-				B39BBE3D248FC23500855E32 /* Main.storyboard in Resources */,
+				B3EE2A53249E3FFE00FF8123 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,6 +222,7 @@
 			files = (
 				B31ED5DC249374EF0075BEC3 /* URLExtension.swift in Sources */,
 				B3B7D8692493B9B2008BBB48 /* NSFontExtension.swift in Sources */,
+				B3EE2A48249E3EA000FF8123 /* PreferencesWindowController.swift in Sources */,
 				B36D458324960B6F00DB683E /* FileNameTableCellView.swift in Sources */,
 				B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */,
 				B39BBE38248FC22E00855E32 /* EditorViewController.swift in Sources */,
@@ -215,21 +230,11 @@
 				B39BBE4B248FCA9500855E32 /* DocumentManager.swift in Sources */,
 				B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */,
 				B39BBE46248FC5D400855E32 /* EditorWindowController.swift in Sources */,
+				B3EE2A4A249E3EB300FF8123 /* PreferencesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B39BBE3B248FC23500855E32 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B39BBE3C248FC23500855E32 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B39BBE40248FC23500855E32 /* Debug */ = {

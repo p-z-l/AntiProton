@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="Mbk-7A-9Ye">
+            <objects>
+                <windowController storyboardIdentifier="PreferencesWindowController" id="aQt-SU-N1H" customClass="PreferencesWindowController" customModule="AntiProton" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fuS-hf-hlu">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="2A8859AB-6200-475F-9F13-AA9A5E563A36" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="GVT-aR-ALa">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="9CDCD6C2-0938-4CA7-A3D0-B7E49F1E40CE" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" id="VfZ-pT-aBs">
+                                    <size key="minSize" width="32" height="32"/>
+                                    <size key="maxSize" width="32" height="32"/>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="VfZ-pT-aBs"/>
+                            </defaultToolbarItems>
+                        </toolbar>
+                        <connections>
+                            <outlet property="delegate" destination="aQt-SU-N1H" id="tu2-no-chM"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="acw-Xl-aMb" kind="relationship" relationship="window.shadowedContentViewController" id="jzJ-dI-9Zr"/>
+                    </connections>
+                </windowController>
+                <customObject id="Swt-MG-ogU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="64"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="StI-nd-jXx">
+            <objects>
+                <viewController id="acw-Xl-aMb" customClass="PreferencesViewController" customModule="AntiProton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="sjq-CI-hAI">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="o3q-3w-7Wc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-314" y="510"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="NSPreferencesGeneral" width="32" height="32"/>
+    </resources>
+</document>

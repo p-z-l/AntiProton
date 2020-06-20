@@ -10,10 +10,14 @@ import Cocoa
 
 class Preferences: NSObject {
     override private init() {}
-    static var fontSizeKey = "AntiProton_fontSize"
+    
+    struct keys {
+        static let fontSize = "AntiProton_fontSize"
+    }
+    
     static var fontSize: CGFloat {
         get {
-            let size = CGFloat(UserDefaults.standard.float(forKey: Preferences.fontSizeKey))
+            let size = CGFloat(UserDefaults.standard.float(forKey: Preferences.keys.fontSize))
             if size >= 8 {
                 return size
             } else {
@@ -22,7 +26,7 @@ class Preferences: NSObject {
         }
         set {
             if newValue >= 8 {
-                UserDefaults.standard.set(newValue, forKey: Preferences.fontSizeKey)
+                UserDefaults.standard.set(newValue, forKey: Preferences.keys.fontSize)
             }
         }
     }
