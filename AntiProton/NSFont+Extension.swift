@@ -1,5 +1,5 @@
 //
-//  NSFontExtension.swift
+//  NSFont+Extension.swift
 //  AntiProton
 //
 //  Created by Peter Luo on 2020/6/12.

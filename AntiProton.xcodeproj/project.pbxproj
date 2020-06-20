@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31845042493D40600FC22B8 /* EditorBuffer.swift */; };
 		B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BCED02494F4DC00B8F897 /* Preferences.swift */; };
-		B31ED5DC249374EF0075BEC3 /* URLExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED5DB249374EF0075BEC3 /* URLExtension.swift */; };
+		B31ED5DC249374EF0075BEC3 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED5DB249374EF0075BEC3 /* URL+Extension.swift */; };
 		B36046472494BAD60088498D /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36046462494BAD60088498D /* Highlightr.framework */; };
 		B36046482494BAD60088498D /* Highlightr.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B36046462494BAD60088498D /* Highlightr.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B36D458324960B6F00DB683E /* FileNameTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B36D458224960B6F00DB683E /* FileNameTableCellView.swift */; };
@@ -18,12 +18,13 @@
 		B39BBE3A248FC23500855E32 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B39BBE39248FC23500855E32 /* Assets.xcassets */; };
 		B39BBE46248FC5D400855E32 /* EditorWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE45248FC5D400855E32 /* EditorWindowController.swift */; };
 		B39BBE4B248FCA9500855E32 /* DocumentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B39BBE4A248FCA9500855E32 /* DocumentManager.swift */; };
-		B3B7D8692493B9B2008BBB48 /* NSFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */; };
+		B3B7D8692493B9B2008BBB48 /* NSFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7D8682493B9B2008BBB48 /* NSFont+Extension.swift */; };
 		B3EE2A46249E3DC900FF8123 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */; };
 		B3EE2A48249E3EA000FF8123 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */; };
 		B3EE2A4A249E3EB300FF8123 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A49249E3EB300FF8123 /* GeneralViewController.swift */; };
 		B3EE2A51249E3FED00FF8123 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A50249E3FED00FF8123 /* Editor.storyboard */; };
 		B3EE2A53249E3FFE00FF8123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A52249E3FFE00FF8123 /* Main.storyboard */; };
+		B3EE2A55249E486B00FF8123 /* NSColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A54249E486B00FF8123 /* NSColor+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,7 +44,7 @@
 /* Begin PBXFileReference section */
 		B31845042493D40600FC22B8 /* EditorBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorBuffer.swift; sourceTree = "<group>"; };
 		B31BCED02494F4DC00B8F897 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
-		B31ED5DB249374EF0075BEC3 /* URLExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtension.swift; sourceTree = "<group>"; };
+		B31ED5DB249374EF0075BEC3 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B36046462494BAD60088498D /* Highlightr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Highlightr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B36D458224960B6F00DB683E /* FileNameTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNameTableCellView.swift; sourceTree = "<group>"; };
 		B39BBE32248FC22E00855E32 /* AntiProton.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AntiProton.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,12 +55,13 @@
 		B39BBE3F248FC23500855E32 /* AntiProton.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AntiProton.entitlements; sourceTree = "<group>"; };
 		B39BBE45248FC5D400855E32 /* EditorWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorWindowController.swift; sourceTree = "<group>"; };
 		B39BBE4A248FCA9500855E32 /* DocumentManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentManager.swift; sourceTree = "<group>"; };
-		B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFontExtension.swift; sourceTree = "<group>"; };
+		B3B7D8682493B9B2008BBB48 /* NSFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSFont+Extension.swift"; sourceTree = "<group>"; };
 		B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		B3EE2A49249E3EB300FF8123 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		B3EE2A50249E3FED00FF8123 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
 		B3EE2A52249E3FFE00FF8123 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B3EE2A54249E486B00FF8123 /* NSColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,8 +132,9 @@
 		B39BBE49248FCA7900855E32 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				B31ED5DB249374EF0075BEC3 /* URLExtension.swift */,
-				B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */,
+				B31ED5DB249374EF0075BEC3 /* URL+Extension.swift */,
+				B3B7D8682493B9B2008BBB48 /* NSFont+Extension.swift */,
+				B3EE2A54249E486B00FF8123 /* NSColor+Extension.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -220,8 +223,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B31ED5DC249374EF0075BEC3 /* URLExtension.swift in Sources */,
-				B3B7D8692493B9B2008BBB48 /* NSFontExtension.swift in Sources */,
+				B31ED5DC249374EF0075BEC3 /* URL+Extension.swift in Sources */,
+				B3B7D8692493B9B2008BBB48 /* NSFont+Extension.swift in Sources */,
+				B3EE2A55249E486B00FF8123 /* NSColor+Extension.swift in Sources */,
 				B3EE2A48249E3EA000FF8123 /* PreferencesWindowController.swift in Sources */,
 				B36D458324960B6F00DB683E /* FileNameTableCellView.swift in Sources */,
 				B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */,

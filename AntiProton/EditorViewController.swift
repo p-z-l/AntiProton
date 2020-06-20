@@ -95,6 +95,8 @@ class EditorViewController: NSViewController {
             contentTextView.backgroundColor = .textBackgroundColor
         }
         bufferListStackView.layer?.backgroundColor = contentTextView.backgroundColor.shadow(withLevel: 0.2)?.cgColor
+        
+        contentTextView.insertionPointColor = highlightr.theme.themeBackgroundColor.inverted
     }
     
     func undo() {
