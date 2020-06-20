@@ -1,5 +1,5 @@
 //
-//  PreferencesViewController.swift
+//  GeneralViewController.swift
 //  AntiProton
 //
 //  Created by Peter Luo on 2020/6/20.
@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class PreferencesViewController: NSViewController {
+class GeneralViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

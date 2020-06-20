@@ -73,8 +73,6 @@ class EditorViewController: NSViewController {
             self.sourceListOutlineView.reloadData()
         }
         contentTextView.isAutomaticQuoteSubstitutionEnabled = false
-        
-        highlightr.setTheme(to: "atom-one-dark")
     }
     
     // MARK: Private methods
@@ -85,6 +83,7 @@ class EditorViewController: NSViewController {
         }
     }
     private func updateCodeHighlight() {
+        highlightr.setTheme(to: Preferences.themeName)
         let selections = contentTextView.selectedRanges
         let attributedString = highlightedText
         contentTextView.textStorage?.setAttributedString(attributedString)

@@ -21,7 +21,7 @@
 		B3B7D8692493B9B2008BBB48 /* NSFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */; };
 		B3EE2A46249E3DC900FF8123 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */; };
 		B3EE2A48249E3EA000FF8123 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */; };
-		B3EE2A4A249E3EB300FF8123 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A49249E3EB300FF8123 /* PreferencesViewController.swift */; };
+		B3EE2A4A249E3EB300FF8123 /* GeneralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3EE2A49249E3EB300FF8123 /* GeneralViewController.swift */; };
 		B3EE2A51249E3FED00FF8123 /* Editor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A50249E3FED00FF8123 /* Editor.storyboard */; };
 		B3EE2A53249E3FFE00FF8123 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B3EE2A52249E3FFE00FF8123 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -57,7 +57,7 @@
 		B3B7D8682493B9B2008BBB48 /* NSFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFontExtension.swift; sourceTree = "<group>"; };
 		B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
 		B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
-		B3EE2A49249E3EB300FF8123 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		B3EE2A49249E3EB300FF8123 /* GeneralViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralViewController.swift; sourceTree = "<group>"; };
 		B3EE2A50249E3FED00FF8123 /* Editor.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Editor.storyboard; sourceTree = "<group>"; };
 		B3EE2A52249E3FFE00FF8123 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,7 +142,7 @@
 				B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */,
 				B31BCED02494F4DC00B8F897 /* Preferences.swift */,
 				B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */,
-				B3EE2A49249E3EB300FF8123 /* PreferencesViewController.swift */,
+				B3EE2A49249E3EB300FF8123 /* GeneralViewController.swift */,
 			);
 			name = Preferences;
 			sourceTree = "<group>";
@@ -230,7 +230,7 @@
 				B39BBE4B248FCA9500855E32 /* DocumentManager.swift in Sources */,
 				B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */,
 				B39BBE46248FC5D400855E32 /* EditorWindowController.swift in Sources */,
-				B3EE2A4A249E3EB300FF8123 /* PreferencesViewController.swift in Sources */,
+				B3EE2A4A249E3EB300FF8123 /* GeneralViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

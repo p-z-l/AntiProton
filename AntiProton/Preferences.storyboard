@@ -14,41 +14,89 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="245" y="301" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <toolbar key="toolbar" implicitIdentifier="2A8859AB-6200-475F-9F13-AA9A5E563A36" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="GVT-aR-ALa">
-                            <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="9CDCD6C2-0938-4CA7-A3D0-B7E49F1E40CE" label="General" paletteLabel="General" tag="-1" image="NSPreferencesGeneral" id="VfZ-pT-aBs">
-                                    <size key="minSize" width="32" height="32"/>
-                                    <size key="maxSize" width="32" height="32"/>
-                                </toolbarItem>
-                            </allowedToolbarItems>
-                            <defaultToolbarItems>
-                                <toolbarItem reference="VfZ-pT-aBs"/>
-                            </defaultToolbarItems>
-                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="aQt-SU-N1H" id="tu2-no-chM"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="acw-Xl-aMb" kind="relationship" relationship="window.shadowedContentViewController" id="jzJ-dI-9Zr"/>
+                        <segue destination="0cP-Qw-vrq" kind="relationship" relationship="window.shadowedContentViewController" id="2fP-xA-QTh"/>
                     </connections>
                 </windowController>
                 <customObject id="Swt-MG-ogU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-314" y="64"/>
         </scene>
-        <!--Preferences View Controller-->
-        <scene sceneID="StI-nd-jXx">
+        <!--Tab View Controller-->
+        <scene sceneID="uCq-5Y-uNo">
             <objects>
-                <viewController id="acw-Xl-aMb" customClass="PreferencesViewController" customModule="AntiProton" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="sjq-CI-hAI">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="0cP-Qw-vrq" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem label="General" identifier="" image="NSPreferencesGeneral" id="aJd-Tj-eQG"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="jyT-eR-Cqg">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="o3q-3w-7Wc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <outlet property="delegate" destination="0cP-Qw-vrq" id="2VC-LK-lnd"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="jyT-eR-Cqg" id="E29-dO-mLN"/>
+                        <segue destination="91U-0M-cYV" kind="relationship" relationship="tabItems" id="q8a-2O-uYO"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="qeU-bi-gn8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-314" y="510"/>
+            <point key="canvasLocation" x="368" y="64"/>
+        </scene>
+        <!--General-->
+        <scene sceneID="jvV-dH-CdE">
+            <objects>
+                <viewController title="General" id="91U-0M-cYV" customClass="GeneralViewController" customModule="AntiProton" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="afL-pJ-2ax">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xyy-mB-82n">
+                                <rect key="frame" x="117" y="256" width="116" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="theme-name" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Hu4-18-LoC" id="Efg-Y4-sD7">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <menu key="menu" id="elE-1I-YfC">
+                                        <items>
+                                            <menuItem title="theme-name" state="on" id="Hu4-18-LoC"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="selectTheme:" target="91U-0M-cYV" id="wYd-V3-hiL"/>
+                                </connections>
+                            </popUpButton>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oZ1-Zp-IDf">
+                                <rect key="frame" x="18" y="262" width="95" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Syntax Theme:" id="FL1-Ag-NHu">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xyy-mB-82n" secondAttribute="trailing" constant="20" id="5pS-dJ-dVg"/>
+                            <constraint firstItem="xyy-mB-82n" firstAttribute="centerY" secondItem="oZ1-Zp-IDf" secondAttribute="centerY" id="QEc-Qb-tGA"/>
+                            <constraint firstItem="xyy-mB-82n" firstAttribute="leading" secondItem="oZ1-Zp-IDf" secondAttribute="trailing" constant="8" id="ox8-jY-bYm"/>
+                            <constraint firstItem="oZ1-Zp-IDf" firstAttribute="leading" secondItem="afL-pJ-2ax" secondAttribute="leading" constant="20" id="r5x-bj-8pz"/>
+                            <constraint firstItem="xyy-mB-82n" firstAttribute="top" secondItem="afL-pJ-2ax" secondAttribute="top" constant="20" id="rns-3Y-F6f"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="selectThemePopup" destination="xyy-mB-82n" id="VcT-Ba-hXc"/>
+                    </connections>
+                </viewController>
+                <customObject id="RqW-AL-DJj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="76" y="575"/>
         </scene>
     </scenes>
     <resources>
