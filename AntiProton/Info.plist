@@ -15,6 +15,10 @@
 			<string>File</string>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>com.pzl.AntiProton</string>
+			</array>
 			<key>LSTypeIsPackage</key>
 			<integer>1</integer>
 		</dict>

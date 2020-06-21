@@ -84,9 +84,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @IBAction func showPrefs(_ sender: NSMenuItem) {
-        let storyboard = NSStoryboard(name: "Preferences", bundle: nil)
-        let storyboardWC = PreferencesWindowController.shared
-        storyboardWC.window?.makeKeyAndOrderFront(self)
+        let prefsWC = PreferencesWindowController.shared
+        prefsWC.window?.makeKeyAndOrderFront(self)
     }
     
     // open a new editor window
@@ -99,10 +98,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func changeFontSize(by dSize: CGFloat) {
         if let editorVC = NSApplication.shared.mainWindow?.contentViewController as? EditorViewController {
-            let currentFont = editorVC .contentTextView.font!
-            Preferences.fontSize = currentFont.pointSize + dSize
-            let font = currentFont.changeSize(to: Preferences.fontSize)
-            editorVC .contentTextView.font = font
+            Preferences.changeFontSize(by: dSize)
+            editorVC.contentTextView.font = Preferences.font
         }
     }
 }

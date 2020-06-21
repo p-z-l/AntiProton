@@ -87,7 +87,7 @@ class EditorViewController: NSViewController {
         let selections = contentTextView.selectedRanges
         let attributedString = highlightedText
         contentTextView.textStorage?.setAttributedString(attributedString)
-        contentTextView.font = .SFMono(ofSize: Preferences.fontSize)
+        contentTextView.font = Preferences.font
         contentTextView.selectedRanges = selections
         if currentBuffer.representedURL?.pathExtension != "txt" {
             contentTextView.backgroundColor = highlightr.theme.themeBackgroundColor

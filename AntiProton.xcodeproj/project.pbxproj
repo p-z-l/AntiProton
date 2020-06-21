@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31845042493D40600FC22B8 /* EditorBuffer.swift */; };
+		B31A9D22249F75640070A300 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A9D21249F75640070A300 /* PreferencesTabViewController.swift */; };
 		B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BCED02494F4DC00B8F897 /* Preferences.swift */; };
 		B31ED5DC249374EF0075BEC3 /* URL+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31ED5DB249374EF0075BEC3 /* URL+Extension.swift */; };
 		B36046472494BAD60088498D /* Highlightr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B36046462494BAD60088498D /* Highlightr.framework */; };
@@ -43,6 +44,7 @@
 
 /* Begin PBXFileReference section */
 		B31845042493D40600FC22B8 /* EditorBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorBuffer.swift; sourceTree = "<group>"; };
+		B31A9D21249F75640070A300 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		B31BCED02494F4DC00B8F897 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		B31ED5DB249374EF0075BEC3 /* URL+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extension.swift"; sourceTree = "<group>"; };
 		B36046462494BAD60088498D /* Highlightr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Highlightr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +147,7 @@
 				B3EE2A45249E3DC900FF8123 /* Preferences.storyboard */,
 				B31BCED02494F4DC00B8F897 /* Preferences.swift */,
 				B3EE2A47249E3EA000FF8123 /* PreferencesWindowController.swift */,
+				B31A9D21249F75640070A300 /* PreferencesTabViewController.swift */,
 				B3EE2A49249E3EB300FF8123 /* GeneralViewController.swift */,
 			);
 			name = Preferences;
@@ -224,6 +227,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B31ED5DC249374EF0075BEC3 /* URL+Extension.swift in Sources */,
+				B31A9D22249F75640070A300 /* PreferencesTabViewController.swift in Sources */,
 				B3B7D8692493B9B2008BBB48 /* NSFont+Extension.swift in Sources */,
 				B3EE2A55249E486B00FF8123 /* NSColor+Extension.swift in Sources */,
 				B3EE2A48249E3EA000FF8123 /* PreferencesWindowController.swift in Sources */,

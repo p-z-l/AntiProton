@@ -26,10 +26,10 @@
             </objects>
             <point key="canvasLocation" x="-314" y="64"/>
         </scene>
-        <!--Tab View Controller-->
+        <!--Preferences Tab View Controller-->
         <scene sceneID="uCq-5Y-uNo">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="0cP-Qw-vrq" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="0cP-Qw-vrq" customClass="PreferencesTabViewController" customModule="AntiProton" customModuleProvider="target" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem label="General" identifier="" image="NSPreferencesGeneral" id="aJd-Tj-eQG"/>
                     </tabViewItems>
@@ -81,16 +81,51 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nEX-lO-dKS">
+                                <rect key="frame" x="18" y="233" width="35" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Font:" id="cXh-Z8-ooz">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7fC-n3-Eov">
+                                <rect key="frame" x="59" y="230" width="261" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="nRf-sn-fdK">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-9g-Iqm">
+                                <rect key="frame" x="322" y="223" width="126" height="32"/>
+                                <buttonCell key="cell" type="push" title="Choose font..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8g6-oy-awy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="chooseFont:" target="91U-0M-cYV" id="dS2-sU-vBP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xyy-mB-82n" secondAttribute="trailing" constant="20" id="5pS-dJ-dVg"/>
+                            <constraint firstItem="7fC-n3-Eov" firstAttribute="centerY" secondItem="nEX-lO-dKS" secondAttribute="centerY" id="HlJ-8O-tnt"/>
+                            <constraint firstItem="9Em-9g-Iqm" firstAttribute="leading" secondItem="7fC-n3-Eov" secondAttribute="trailing" constant="8" id="KhG-je-GTY"/>
                             <constraint firstItem="xyy-mB-82n" firstAttribute="centerY" secondItem="oZ1-Zp-IDf" secondAttribute="centerY" id="QEc-Qb-tGA"/>
+                            <constraint firstItem="9Em-9g-Iqm" firstAttribute="centerY" secondItem="nEX-lO-dKS" secondAttribute="centerY" id="RoQ-0t-k7C"/>
+                            <constraint firstAttribute="trailing" secondItem="9Em-9g-Iqm" secondAttribute="trailing" constant="8" id="VCQ-WZ-c8H"/>
+                            <constraint firstItem="nEX-lO-dKS" firstAttribute="leading" secondItem="afL-pJ-2ax" secondAttribute="leading" constant="20" id="bTd-vU-n8e"/>
+                            <constraint firstItem="7fC-n3-Eov" firstAttribute="top" secondItem="xyy-mB-82n" secondAttribute="bottom" constant="8" id="mON-9e-ozL"/>
                             <constraint firstItem="xyy-mB-82n" firstAttribute="leading" secondItem="oZ1-Zp-IDf" secondAttribute="trailing" constant="8" id="ox8-jY-bYm"/>
                             <constraint firstItem="oZ1-Zp-IDf" firstAttribute="leading" secondItem="afL-pJ-2ax" secondAttribute="leading" constant="20" id="r5x-bj-8pz"/>
                             <constraint firstItem="xyy-mB-82n" firstAttribute="top" secondItem="afL-pJ-2ax" secondAttribute="top" constant="20" id="rns-3Y-F6f"/>
+                            <constraint firstItem="7fC-n3-Eov" firstAttribute="leading" secondItem="nEX-lO-dKS" secondAttribute="trailing" constant="8" id="tqy-5H-rdc"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btChooseFont" destination="9Em-9g-Iqm" id="4WI-jH-RBx"/>
+                        <outlet property="fontField" destination="7fC-n3-Eov" id="qaA-Hb-KMX"/>
                         <outlet property="selectThemePopup" destination="xyy-mB-82n" id="VcT-Ba-hXc"/>
                     </connections>
                 </viewController>

@@ -12,29 +12,13 @@ class Preferences: NSObject {
     override private init() {}
     
     struct keys {
-        static let fontSize = "AntiProton_fontSize"
         static let themeName = "AntiProton_themeName"
+        static let font = "AntiProton_font"
     }
     
     struct defaultValues {
-        static let fontSize : CGFloat = 12
         static let themeName = "atom-one-dark"
-    }
-    
-    static var fontSize: CGFloat {
-        get {
-            let size = CGFloat(UserDefaults.standard.float(forKey: Preferences.keys.fontSize))
-            if size >= 8 {
-                return size
-            } else {
-                return Preferences.defaultValues.fontSize
-            }
-        }
-        set {
-            if newValue >= 8 {
-                UserDefaults.standard.set(newValue, forKey: Preferences.keys.fontSize)
-            }
-        }
+        static let font: NSFont = NSFont.SFMono(ofSize: NSFont.systemFontSize)
     }
     
     static var themeName: String {
@@ -48,5 +32,25 @@ class Preferences: NSObject {
         set {
             UserDefaults.standard.set(newValue, forKey: Preferences.keys.themeName)
         }
+    }
+    
+    static var font: NSFont {
+        get {
+            if let font = NSFont.loadFromUserDefaults(forKey: Preferences.keys.font) {
+                return font
+            } else {
+                return Preferences.defaultValues.font
+            }
+        }
+        set {
+            newValue.saveToUserDefaults(forKey: Preferences.keys.font)
+        }
+    }
+    
+    static func changeFontSize(by dSize: CGFloat) {
+        let currentFont = Preferences.font
+        let currentSize = Preferences.font.pointSize
+        
+        Preferences.font = currentFont.changeSize(to: currentSize + dSize)
     }
 }
