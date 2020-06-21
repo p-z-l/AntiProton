@@ -51,7 +51,6 @@ class GeneralViewController: NSViewController {
     private func updateFontField() {
         fontField.font = Preferences.font
         fontField.stringValue = "\(Preferences.font.displayName!):\(Preferences.font.pointSize)"
-        print("update!")
     }
 }
 

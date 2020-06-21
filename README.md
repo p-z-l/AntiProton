@@ -22,7 +22,7 @@ A high performance code editor for Mac.
 ## TODO
 - Bugfixes
 - Touchbar support
-- Preferences & Customizations
+- More Preferences & Customizations
 - RTF/RTFD support
 - Customized syntax theme
 
