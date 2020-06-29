@@ -22,6 +22,8 @@ class GeneralViewController: NSViewController {
         
         setUpthemePopup()
         setUpFontChooser()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFontField), name: .fontChanged, object: nil)
     }
     
     @IBAction func selectTheme(_ sender: NSPopUpButton) {
@@ -32,10 +34,6 @@ class GeneralViewController: NSViewController {
     
     @IBAction func chooseFont(_ sender: NSButton) {
         NSFontPanel.shared.makeKeyAndOrderFront(self)
-    }
-    
-    func fontChanged() {
-        updateFontField()
     }
     
     private func setUpthemePopup() {
@@ -50,7 +48,7 @@ class GeneralViewController: NSViewController {
         updateFontField()
     }
     
-    private func updateFontField() {
+    @objc private func updateFontField() {
         fontField.font = Preferences.font
         fontField.stringValue = "\(Preferences.font.displayName!):\(Preferences.font.pointSize)"
     }
