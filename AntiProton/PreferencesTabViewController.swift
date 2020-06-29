@@ -23,5 +23,7 @@ extension PreferencesTabViewController: NSFontChanging {
             generalVC.fontChanged()
         }
         Preferences.font = sender!.convert(Preferences.font)
+        
+        NotificationCenter.default.post(Notification(name: .fontChanged))
     }
 }

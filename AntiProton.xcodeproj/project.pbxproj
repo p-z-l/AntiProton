@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00AB217524A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB217424A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift */; };
 		B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31845042493D40600FC22B8 /* EditorBuffer.swift */; };
 		B31A9D22249F75640070A300 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A9D21249F75640070A300 /* PreferencesTabViewController.swift */; };
 		B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BCED02494F4DC00B8F897 /* Preferences.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00AB217424A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification.Name+Extension.swift"; sourceTree = "<group>"; };
 		B31845042493D40600FC22B8 /* EditorBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorBuffer.swift; sourceTree = "<group>"; };
 		B31A9D21249F75640070A300 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		B31BCED02494F4DC00B8F897 /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 				B31ED5DB249374EF0075BEC3 /* URL+Extension.swift */,
 				B3B7D8682493B9B2008BBB48 /* NSFont+Extension.swift */,
 				B3EE2A54249E486B00FF8123 /* NSColor+Extension.swift */,
+				00AB217424A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */,
 				B39BBE46248FC5D400855E32 /* EditorWindowController.swift in Sources */,
 				B3EE2A4A249E3EB300FF8123 /* GeneralViewController.swift in Sources */,
+				00AB217524A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

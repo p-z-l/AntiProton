@@ -26,6 +26,8 @@ class GeneralViewController: NSViewController {
     
     @IBAction func selectTheme(_ sender: NSPopUpButton) {
         Preferences.themeName = sender.selectedItem!.title
+        
+        NotificationCenter.default.post(Notification(name: .themeChanged))
     }
     
     @IBAction func chooseFont(_ sender: NSButton) {

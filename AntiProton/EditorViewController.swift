@@ -73,6 +73,9 @@ class EditorViewController: NSViewController {
             self.sourceListOutlineView.reloadData()
         }
         contentTextView.isAutomaticQuoteSubstitutionEnabled = false
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCodeHighlight), name: .fontChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCodeHighlight), name: .themeChanged, object: nil)
     }
     
     // MARK: Private methods
@@ -82,7 +85,7 @@ class EditorViewController: NSViewController {
             currentBuffer = EditorBuffer(filePath: url)
         }
     }
-    private func updateCodeHighlight() {
+    @objc private func updateCodeHighlight() {
         highlightr.setTheme(to: Preferences.themeName)
         let selections = contentTextView.selectedRanges
         let attributedString = highlightedText
