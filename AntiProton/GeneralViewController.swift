@@ -17,6 +17,8 @@ class GeneralViewController: NSViewController {
     
     @IBOutlet weak var btChooseFont: NSButton!
     
+    @IBOutlet weak var appearancePopup: NSPopUpButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,12 +30,16 @@ class GeneralViewController: NSViewController {
     
     @IBAction func selectTheme(_ sender: NSPopUpButton) {
         Preferences.themeName = sender.selectedItem!.title
-        
-        NotificationCenter.default.post(Notification(name: .themeChanged))
     }
     
     @IBAction func chooseFont(_ sender: NSButton) {
         NSFontPanel.shared.makeKeyAndOrderFront(self)
+    }
+    @IBAction func selectAppearance(_ sender: NSPopUpButton) {
+        let rawValue = sender.indexOfSelectedItem
+        if let appearance = Preferences.Appearance(rawValue: rawValue) {
+            Preferences.appearance = appearance
+        }
     }
     
     private func setUpthemePopup() {
@@ -46,6 +52,10 @@ class GeneralViewController: NSViewController {
         fontField.isEditable = false
         
         updateFontField()
+    }
+    
+    private func setupAppearancePopup() {
+        appearancePopup.selectItem(withTitle: "")
     }
     
     @objc private func updateFontField() {

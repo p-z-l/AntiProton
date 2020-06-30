@@ -11,6 +11,17 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
+    var appearanceChangeObservation: NSKeyValueObservation?
+    
+    func applicationDidFinishLaunching(_ notification: Notification) {
+        if NSApp.windows.isEmpty {
+            let _ = newEditorWindow()
+        }
+        appearanceChangeObservation = NSApp.observe(\.effectiveAppearance) { (app, _) in
+            NotificationCenter.default.post(Notification(name: .appearanceChanged))
+        }
+    }
+    
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         // When click on dock icon, open a new window if needed
         if NSApplication.shared.mainWindow == nil {
@@ -32,10 +43,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let editorWC = newEditorWindow()
         editorWC.openURL(url)
         return true
-    }
-    
-    func applicationDidFinishLaunching(_ notification: Notification) {
-        let _ = newEditorWindow()
     }
     
     @IBAction func openDocument(_ sender: AnyObject?) {

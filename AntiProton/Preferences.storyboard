@@ -110,15 +110,45 @@
                                     <action selector="chooseFont:" target="91U-0M-cYV" id="dS2-sU-vBP"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cbo-rr-aus">
+                                <rect key="frame" x="18" y="204" width="81" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Appearance:" id="y2f-X7-fkP">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="m6t-SZ-ODQ">
+                                <rect key="frame" x="103" y="198" width="84" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="System" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="1Pb-VV-bDt" id="PN1-Vk-r8v">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Ldq-Pa-9Z6">
+                                        <items>
+                                            <menuItem title="System" state="on" id="1Pb-VV-bDt"/>
+                                            <menuItem title="Light" id="kJ0-gV-aK8"/>
+                                            <menuItem title="Dark" id="oel-m4-eZo"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="selectAppearance:" target="91U-0M-cYV" id="2uK-1r-6nL"/>
+                                </connections>
+                            </popUpButton>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xyy-mB-82n" secondAttribute="trailing" constant="20" id="5pS-dJ-dVg"/>
+                            <constraint firstItem="m6t-SZ-ODQ" firstAttribute="top" secondItem="7fC-n3-Eov" secondAttribute="bottom" constant="8" id="6eT-6g-O4P"/>
                             <constraint firstItem="7fC-n3-Eov" firstAttribute="centerY" secondItem="nEX-lO-dKS" secondAttribute="centerY" id="HlJ-8O-tnt"/>
                             <constraint firstItem="9Em-9g-Iqm" firstAttribute="leading" secondItem="7fC-n3-Eov" secondAttribute="trailing" constant="8" id="KhG-je-GTY"/>
+                            <constraint firstItem="m6t-SZ-ODQ" firstAttribute="centerY" secondItem="cbo-rr-aus" secondAttribute="centerY" id="MrT-ES-pyk"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="m6t-SZ-ODQ" secondAttribute="trailing" constant="20" id="OGb-XF-3Oe"/>
                             <constraint firstItem="xyy-mB-82n" firstAttribute="centerY" secondItem="oZ1-Zp-IDf" secondAttribute="centerY" id="QEc-Qb-tGA"/>
                             <constraint firstItem="9Em-9g-Iqm" firstAttribute="centerY" secondItem="nEX-lO-dKS" secondAttribute="centerY" id="RoQ-0t-k7C"/>
                             <constraint firstAttribute="trailing" secondItem="9Em-9g-Iqm" secondAttribute="trailing" constant="8" id="VCQ-WZ-c8H"/>
+                            <constraint firstItem="cbo-rr-aus" firstAttribute="leading" secondItem="afL-pJ-2ax" secondAttribute="leading" constant="20" id="avq-TR-5df"/>
                             <constraint firstItem="nEX-lO-dKS" firstAttribute="leading" secondItem="afL-pJ-2ax" secondAttribute="leading" constant="20" id="bTd-vU-n8e"/>
+                            <constraint firstItem="m6t-SZ-ODQ" firstAttribute="leading" secondItem="cbo-rr-aus" secondAttribute="trailing" constant="8" id="jMl-23-w15"/>
                             <constraint firstItem="7fC-n3-Eov" firstAttribute="top" secondItem="xyy-mB-82n" secondAttribute="bottom" constant="8" id="mON-9e-ozL"/>
                             <constraint firstItem="xyy-mB-82n" firstAttribute="leading" secondItem="oZ1-Zp-IDf" secondAttribute="trailing" constant="8" id="ox8-jY-bYm"/>
                             <constraint firstItem="oZ1-Zp-IDf" firstAttribute="leading" secondItem="afL-pJ-2ax" secondAttribute="leading" constant="20" id="r5x-bj-8pz"/>
@@ -127,6 +157,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="appearancePopup" destination="m6t-SZ-ODQ" id="VUP-Ey-bA5"/>
                         <outlet property="btChooseFont" destination="9Em-9g-Iqm" id="4WI-jH-RBx"/>
                         <outlet property="fontField" destination="7fC-n3-Eov" id="qaA-Hb-KMX"/>
                         <outlet property="selectThemePopup" destination="xyy-mB-82n" id="VcT-Ba-hXc"/>

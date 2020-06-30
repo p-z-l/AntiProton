@@ -26,6 +26,12 @@ class EditorWindowController: NSWindowController {
         editorVC.didEdit {
             self.window?.isDocumentEdited = true
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAppearance), name: .appearanceChanged, object: nil)
+    }
+    
+    @objc func updateAppearance() {
+        self.window?.appearance = Preferences.appearance.nsAppearance
     }
     
     // show open document panel

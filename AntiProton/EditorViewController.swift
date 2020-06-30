@@ -74,8 +74,7 @@ class EditorViewController: NSViewController {
         }
         contentTextView.isAutomaticQuoteSubstitutionEnabled = false
         
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCodeHighlight), name: .fontChanged, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(updateCodeHighlight), name: .themeChanged, object: nil)
+        setupObservers()
     }
     
     // MARK: Private methods
@@ -85,6 +84,7 @@ class EditorViewController: NSViewController {
             currentBuffer = EditorBuffer(filePath: url)
         }
     }
+    
     @objc private func updateCodeHighlight() {
         highlightr.setTheme(to: Preferences.themeName)
         let selections = contentTextView.selectedRanges
@@ -100,6 +100,16 @@ class EditorViewController: NSViewController {
         bufferListStackView.layer?.backgroundColor = contentTextView.backgroundColor.shadow(withLevel: 0.2)?.cgColor
         
         contentTextView.insertionPointColor = highlightr.theme.themeBackgroundColor.inverted
+    }
+    
+    @objc private func updateAppearance() {
+        self.view.window?.appearance = Preferences.appearance.nsAppearance
+    }
+    
+    private func setupObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCodeHighlight), name: .fontChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateCodeHighlight), name: .themeChanged, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAppearance), name: .appearanceChanged, object: nil)
     }
     
     func undo() {

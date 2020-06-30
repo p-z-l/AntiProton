@@ -14,4 +14,5 @@ extension Notification.Name {
     
     static let themeChanged = Notification.Name("themeChanged")
     
+    static let appearanceChanged = Notification.Name("appearanceChanged")
 }

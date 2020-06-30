@@ -8,17 +8,36 @@
 
 import Cocoa
 
-class Preferences: NSObject {
-    override private init() {}
+struct Preferences {
+    
+    private init() {}
+    
+    enum Appearance : Int {
+        case system
+            case light, dark
+        
+        var nsAppearance: NSAppearance {
+            switch self {
+            case .system:
+                return NSApp.effectiveAppearance
+            case .dark:
+                return NSAppearance(named: .darkAqua)!
+            case .light:
+                return NSAppearance(named: .aqua)!
+            }
+        }
+    }
     
     struct keys {
         static let themeName = "AntiProton_themeName"
         static let font = "AntiProton_font"
+        static let appearance = "AntiProton_appearance"
     }
     
     struct defaultValues {
         static let themeName = "atom-one-dark"
         static let font: NSFont = NSFont.SFMono(ofSize: NSFont.systemFontSize)
+        static let appearance = Preferences.Appearance.system
     }
     
     static var themeName: String {
@@ -31,6 +50,7 @@ class Preferences: NSObject {
         }
         set {
             UserDefaults.standard.set(newValue, forKey: Preferences.keys.themeName)
+            NotificationCenter.default.post(Notification(name: .themeChanged))
         }
     }
     
@@ -44,6 +64,24 @@ class Preferences: NSObject {
         }
         set {
             newValue.saveToUserDefaults(forKey: Preferences.keys.font)
+            NotificationCenter.default.post(Notification(name: .fontChanged))
+        }
+    }
+    
+    static var appearance: Preferences.Appearance {
+        get {
+            let rawValue = UserDefaults.standard.integer(forKey: Preferences.keys.appearance)
+            if let appearance = Preferences.Appearance(rawValue: rawValue) {
+                return appearance
+            } else {
+                Preferences.appearance = .system
+                return Preferences.defaultValues.appearance
+            }
+        }
+        set {
+            let rawValue = newValue.rawValue
+            UserDefaults.standard.setValue(rawValue, forKey: Preferences.keys.appearance)
+            NotificationCenter.default.post(Notification(name: .appearanceChanged))
         }
     }
     
@@ -53,4 +91,5 @@ class Preferences: NSObject {
         
         Preferences.font = currentFont.changeSize(to: currentSize + dSize)
     }
+    
 }

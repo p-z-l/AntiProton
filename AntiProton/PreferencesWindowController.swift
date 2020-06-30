@@ -19,6 +19,11 @@ class PreferencesWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateAppearance), name: .appearanceChanged, object: nil)
     }
-
+    
+    @objc private func updateAppearance() {
+        self.window?.appearance = Preferences.appearance.nsAppearance
+    }
 }

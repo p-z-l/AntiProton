@@ -20,7 +20,5 @@ extension PreferencesTabViewController: NSFontChanging {
     func changeFont(_ sender: NSFontManager?) {
         guard sender != nil else { return }
         Preferences.font = sender!.convert(Preferences.font)
-        
-        NotificationCenter.default.post(Notification(name: .fontChanged))
     }
 }
