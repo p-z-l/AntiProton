@@ -49,8 +49,10 @@ class GeneralViewController: NSViewController {
     }
     
     @objc private func updateFontField() {
-        fontField.font = Preferences.font
-        fontField.stringValue = "\(Preferences.font.displayName!):\(Preferences.font.pointSize)"
+        let font = Preferences.font
+        let displayFont = NSFont(descriptor: font.fontDescriptor, size: NSFont.systemFontSize)
+        fontField.font = displayFont
+        fontField.stringValue = "\(font.displayName!):\(font.pointSize)"
     }
 }
 

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17132.0.2" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132.0.2"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -10,10 +11,12 @@
             <objects>
                 <windowController storyboardIdentifier="PreferencesWindowController" id="aQt-SU-N1H" customClass="PreferencesWindowController" customModule="AntiProton" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fuS-hf-hlu">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="245" y="301" width="480" height="270"/>
+                        <rect key="contentRect" x="245" y="301" width="480" height="540"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="480" height="540"/>
+                        <value key="maxSize" type="size" width="480" height="540"/>
                         <connections>
                             <outlet property="delegate" destination="aQt-SU-N1H" id="tu2-no-chM"/>
                         </connections>
@@ -24,7 +27,7 @@
                 </windowController>
                 <customObject id="Swt-MG-ogU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-314" y="64"/>
+            <point key="canvasLocation" x="-314" y="28"/>
         </scene>
         <!--Preferences Tab View Controller-->
         <scene sceneID="uCq-5Y-uNo">
@@ -59,10 +62,10 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xyy-mB-82n">
-                                <rect key="frame" x="117" y="256" width="116" height="25"/>
+                                <rect key="frame" x="117" y="256" width="117" height="25"/>
                                 <popUpButtonCell key="cell" type="push" title="theme-name" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Hu4-18-LoC" id="Efg-Y4-sD7">
                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
+                                    <font key="font" metaFont="menu"/>
                                     <menu key="menu" id="elE-1I-YfC">
                                         <items>
                                             <menuItem title="theme-name" state="on" id="Hu4-18-LoC"/>
@@ -90,7 +93,7 @@
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7fC-n3-Eov">
-                                <rect key="frame" x="59" y="230" width="261" height="21"/>
+                                <rect key="frame" x="59" y="230" width="257" height="21"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="nRf-sn-fdK">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -98,7 +101,7 @@
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Em-9g-Iqm">
-                                <rect key="frame" x="322" y="223" width="126" height="32"/>
+                                <rect key="frame" x="317" y="224" width="132" height="32"/>
                                 <buttonCell key="cell" type="push" title="Choose font..." bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8g6-oy-awy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -131,7 +134,7 @@
                 </viewController>
                 <customObject id="RqW-AL-DJj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="76" y="575"/>
+            <point key="canvasLocation" x="368" y="565"/>
         </scene>
     </scenes>
     <resources>
