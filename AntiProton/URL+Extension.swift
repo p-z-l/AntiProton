@@ -7,18 +7,9 @@
 //
 
 import Cocoa
+import ShellySwift
 
 extension URL {
-    var isDirectory: Bool {
-        var result : ObjCBool = false
-        FileManager.default.fileExists(atPath: self.path, isDirectory: &result)
-        return result.boolValue
-    }
-    var isFile: Bool {
-        var result : ObjCBool = false
-        FileManager.default.fileExists(atPath: self.path, isDirectory: &result)
-        return !result.boolValue
-    }
     var level: Int {
         return self.pathComponents.count
     }
@@ -32,10 +23,6 @@ extension URL {
     }
     func levelComparedWith(_ baseURL: URL) -> Int { //
         return self.level - baseURL.level - 1
-    }
-    var subdirectoryURLs: [URL]? {
-        guard self.isDirectory else { return nil}
-        return DocumentManager.urlsInDirectory(self)
     }
     var isPlainTextFile: Bool {
         var result = false

@@ -151,11 +151,11 @@ extension EditorViewController: NSTextViewDelegate {
 
 extension EditorViewController: NSOutlineViewDelegate, NSOutlineViewDataSource {
     func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
-        return (item as? URL)?.subdirectoryURLs?[index] ?? documentManager.urls[index]
+        return (item as? URL)?.subURLs[index] ?? documentManager.urls[index]
     }
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
         if let directoryURL = item as? URL {
-            return directoryURL.subdirectoryURLs?.count ?? 0
+            return directoryURL.subURLs.count
         } else {
             return documentManager.urls.count
         }

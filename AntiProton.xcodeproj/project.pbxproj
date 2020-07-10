@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		00AB217524A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00AB217424A9EA4B00FA6CAD /* NSNotification.Name+Extension.swift */; };
+		00C781FE24B86C2900F09652 /* ShellySwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00C781FD24B86C2900F09652 /* ShellySwift */; };
 		B31845052493D40600FC22B8 /* EditorBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31845042493D40600FC22B8 /* EditorBuffer.swift */; };
 		B31A9D22249F75640070A300 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31A9D21249F75640070A300 /* PreferencesTabViewController.swift */; };
 		B31BCED12494F4DC00B8F897 /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = B31BCED02494F4DC00B8F897 /* Preferences.swift */; };
@@ -74,6 +75,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B36046472494BAD60088498D /* Highlightr.framework in Frameworks */,
+				00C781FE24B86C2900F09652 /* ShellySwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +175,9 @@
 			dependencies = (
 			);
 			name = AntiProton;
+			packageProductDependencies = (
+				00C781FD24B86C2900F09652 /* ShellySwift */,
+			);
 			productName = AntiProton;
 			productReference = B39BBE32248FC22E00855E32 /* AntiProton.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +206,9 @@
 				Base,
 			);
 			mainGroup = B39BBE29248FC22E00855E32;
+			packageReferences = (
+				00C781FC24B86C2900F09652 /* XCRemoteSwiftPackageReference "ShellySwift" */,
+			);
 			productRefGroup = B39BBE33248FC22E00855E32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -424,6 +432,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00C781FC24B86C2900F09652 /* XCRemoteSwiftPackageReference "ShellySwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/p-z-l/ShellySwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00C781FD24B86C2900F09652 /* ShellySwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00C781FC24B86C2900F09652 /* XCRemoteSwiftPackageReference "ShellySwift" */;
+			productName = ShellySwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B39BBE2A248FC22E00855E32 /* Project object */;
 }

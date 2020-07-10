@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ShellySwift",
+        "repositoryURL": "https://github.com/p-z-l/ShellySwift.git",
+        "state": {
+          "branch": null,
+          "revision": "49c89145a47b4e114b9838679e4b68f35321c519",
+          "version": "0.0.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
